@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Clone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e3e6e6;
+    }
+
+    /* Header */
+    .header {
+      background-color: #131921;
+      padding: 10px 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .search-bar input {
+      padding: 8px;
+      width: 300px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: contain;
+    }
+
+    .product-card h3 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+
+    .add-btn {
+      background-color: #ffd814;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor:pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #131921;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Amazon</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Search Amazon...">
+    </div>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    <!-- Card 1 -->
+    <div class="product-card">
+      <img src="images/clean.jpg" alt="Product">
+      <h3>Realme Buds Wireless 2 Neo</h3>
+      <div class="price">₹1,299</div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card">
+      <img src="images/doorbell.jpg" alt="Product">
+      <h3>Boat Rockerz 255 Neckband</h3>
+      <div class="price">₹999</div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card">
+      <img src="images/helmet.jpg" alt="Product">
+      <h3>Samsung Galaxy M13</h3>
+      <div class="price">₹10,999</div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 Amazon Clone | Created for educational purposes</p>
+  </div>
+
+</body>
+</html>

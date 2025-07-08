@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .parent{
+        grid-template-columns: auto auto auto auto;
+        background-color: black;
+        display: grid;
+        gap: 3px;
+        color:azure;
+        height: 300px;
+        width: 600px;
+        box-shadow: 3px 5px 15px solid rgba(221, 221, 222, 0.6);
+    }
+    .grid{
+        border: 1px solid blue;
+        text-align: center;
+        height: 85%;
+        background-color: brown;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        place-content: center;
+        border-radius: 70px;
+        transition: all 0.2s ease-in-out ;
+        cursor: pointer;
+        box-shadow: 2px 4px 12px rgba(236, 236, 238, 0.5);
+        background-color: transparent;
+    }
+    .grid:hover{
+        background-color: rgb(236, 147, 15);
+    }
+    body{
+        background-color: rgba(3, 5, 6, 0.404);
+    }
+    .parent1{
+        display: flex;
+        background-color: rgb(58, 62, 62);
+        gap: 10px;
+        color:azure;
+        height: 60px;
+        width: 600px;
+        margin: 10px;
+    }
+    .flex{
+        border: 1px solid blue;
+        text-align: center;
+        height: 80%;
+        background-color: brown;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        width: 200px;
+        place-content: center;
+        border-radius: 50px;
+        transition: all 0.2s ease-in-out ;
+        cursor: pointer;
+        
+    }
+    .flex:hover{
+        background-color: rgb(234, 142, 21);
+    }
+    h1{
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: underline;
+    }
+    li{
+        font-size: 20px;
+        color: rgb(1, 11, 11);
+    }
+</style>
+<body>
+    <h1> &rArr;using grid:</h1>
+    <ul>
+        <li>CSS Grid Layout is a two-dimensional system — it lets you design web layouts using both rows and columns.</li>
+        <li>Grid containers are defined using display: grid or display: inline-grid, and all direct children become grid items.</li>
+        <li>You define the structure using grid-template-rows and grid-template-columns, allowing precise control over layout areas.</li>
+        <li>Grid supports alignment, spacing (gap), and item positioning (grid-row, grid-column), enabling complex responsive designs with clean code.
+        
+        </li>
+    </ul>
+    <div class="parent">
+    <div class="grid">1</div>
+    <div class="grid">2</div>
+    <div class="grid">3</div>
+    <div class="grid">4</div>
+    <div class="grid">5</div>
+    <div class="grid">6</div>
+    <div class="grid">7</div>
+    <div class="grid">8</div>
+    <div class="grid">9</div>
+    <div class="grid">10</div>
+    <div class="grid">11</div>
+    <div class="grid">12</div>
+    <div class="grid">13</div>
+    <div class="grid">14</div>
+    <div class="grid">15</div>
+    <div class="grid">16</div>
+    <div class="grid">17</div>
+    <div class="grid">18</div>
+    <div class="grid">19</div>
+    <div class="grid">20</div>
+    </div>
+     <h1> &rArr;using flex:</h1>
+     <ul><li>Flexbox is a one-dimensional layout system — it arranges items in a row or column (not both like Grid).
+
+     </li>
+    <li>Use display: flex or inline-flex on a container — its direct children become flex items.</li>
+<li>The flex-direction property controls the main axis — e.g., row, column, row-reverse, or column-reverse.</li>
+<li>Flexbox allows easy alignment and spacing — with properties like justify-content, align-items, gap, and flex-grow.</li></ul>
+    <div class="parent1">
+    <div class="flex">1</div>
+    <div class="flex">2</div>
+    <div class="flex">3</div>
+    <div class="flex">4</div>
+    </div>
+    <div class="parent1">
+    <div class="flex">5</div>
+    <div class="flex">6</div>
+    <div class="flex">7</div>
+    <div class="flex">8</div>
+    </div>
+    <div class="parent1">
+    <div class="flex">9</div>
+    <div class="flex">10</div>
+    <div class="flex">11</div>
+    <div class="flex">12</div>
+    </div>
+    <div class="parent1">
+    <div class="flex">13</div>
+    <div class="flex">14</div>
+    <div class="flex">15</div>
+    <div class="flex">16</div>
+    </div>
+    <div class="parent1">
+    <div class="flex">17</div>
+    <div class="flex">18</div>
+    <div class="flex">19</div>
+    <div class="flex">20</div>
+    </div>
+    </div>
+</body>
+</html>
+
+
+    
+

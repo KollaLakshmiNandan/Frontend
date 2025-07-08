@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Table Layout</title>
+</head>
+<body>
+
+    <h1>Student Performance Table</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <caption><strong>Classroom Score Report - Term 1</strong></caption>
+
+        <colgroup>
+            <col span="1">
+            <col span="2">
+            <col span="7">
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th colspan="10">Subject Wise Test Scores</th>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <th>Math</th>
+                <th>Science</th>
+                <th>English</th>
+                <th>History</th>
+                <th>Geography</th>
+                <th>Physics</th>
+                <th>Chemistry</th>
+                <th>Biology</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>88</td>
+                <td>90</td>
+                <td>85</td>
+                <td>80</td>
+                <td>87</td>
+                <td>92</td>
+                <td>89</td>
+                <td>84</td>
+                <td>695</td>
+            </tr>
+            <tr>
+                <td>Emma</td>
+                <td>92</td>
+                <td>91</td>
+                <td>86</td>
+                <td>88</td>
+                <td>90</td>
+                <td>95</td>
+                <td>90</td>
+                <td>93</td>
+                <td>725</td>
+            </tr>
+            <tr>
+                <td>Liam</td>
+                <td>85</td>
+                <td>84</td>
+                <td>80</td>
+                <td>82</td>
+                <td>83</td>
+                <td>87</td>
+                <td>88</td>
+                <td>85</td>
+                <td>674</td>
+            </tr>
+            
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="9"><strong>Average Score</strong></td>
+                <td>698</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

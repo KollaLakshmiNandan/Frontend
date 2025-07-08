@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combination Selectors</title>
+</head>
+<style>
+    div p {
+        color: blue;
+        background-color: bisque;
+        padding: 10px;
+        border: 1px solid burlywood;
+        border-radius: 10px;
+        box-shadow: 3px 3px 15px 5px rgb(172, 138, 88);
+    }
+    article > p{
+        color:crimson;
+        background-color:pink;
+    }
+    h1+p{
+        color: darkorange;
+    }
+</style>
+<body style="background-color:rgb(249, 170, 173)">
+    <div>
+        <h1>Heading</h1>
+        <p>This is a Paragraph</p>
+        <details>
+            <p>this inside para</p>
+            <h1>this is inside heading</h1>
+            <article>
+                <h1>this is inside inside heading</h1>
+                <p>this is inside para and para</p>
+            </article>
+        </details>
+    </div>
+    <p>This is outside para</p>
+    <div>
+        <p>This is a para</p>
+        <h1>This is heading</h1>
+    </div>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>general</title>
+</head>
+<style>
+        h1 ~ p{
+            color:darkgreen;
+            background-color: cornsilk;
+    
+        }
+    </style>
+<body>
+    <div>
+        <h1>Heading</h1>
+        <p>This is a Paragraph</p>
+        <details>
+            <p>this inside para</p>
+            <h1>this is inside heading</h1>
+            <article>
+                <h1>this is inside inside heading</h1>
+                <p>this is inside para and para</p>
+            </article>
+        </details>
+    </div>
+    <p>This is outside para</p>
+    <div>
+        <p>This is a para</p>
+        <h1>This is heading</h1>
+        <p><b>this is another paara</b></p>
+    </div>
+
+    <div>
+        <p>paragraph 1</p>
+        <p>paragraph 2</p>
+        <p>paragraph 3</p>
+        <p>paragraph 4</p>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grouping selector</title>
+</head>
+<style>
+    table{
+        border-collapse: collapse;
+
+    }
+    table,th,td{
+        border: 2px solid brown;
+        padding: 10px;
+        border-style:dashed;
+        box-shadow: 6px 6px 6px 6px lemonchiffon;
+       
+    }
+    th{
+        background-color: rgb(42, 199, 147);
+    }
+    tr:nth-child(2n+1){
+        background-color: rgb(182, 140, 78);
+    }
+    td:nth-child(1){
+        background-color: rgb(224, 112, 112);
+    }
+    td:hover{
+        background-color: blue;
+        border-style: groove;
+        transition: all 0.5s ease;
+
+    }
+    th:hover{
+        background-color: red;
+        transition: all 0.5s ease;
+    }
+    tr:hover{
+        background-color: deeppink;
+        transition: all 0.5s ease;
+    }
+    td:active{
+        background-color:lawngreen;
+    }
+
+    input:required{
+        border-style: double;
+        border-radius: 12px;
+        padding: 10px 20px 20px 10px ;
+        background-color: rgb(38, 87, 87);
+        color: rgb(169, 228, 228);
+        border-color: chartreuse;
+    }
+</style>
+<body>
+    <div>
+    <input type="text" name="" id="" required/>
+    </div>
+    <br>
+    <table>
+        <thead>
+            <th>header 1</th>
+            <th>header 2</th>
+            <th>header 3</th>
+            <th>header 4</th>
+            <th>header 5</th>
+            <th>header 6</th>
+            <th>header 7</th>
+            <th>header 8</th>
+            <th>header 9</th>
+            
+        </thead>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            
+            
+        </tr>
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+            <td>cell 4</td>
+            <td>cell 5</td>
+            <td>cell 6</td>
+            <td>cell 7</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            <td>cell 10</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            <td>cell 10</td>
+            <td>cell 8</td>
+            <td>cell 9</td>
+            <td>cell 10</td>
+            
+        </tr>
+            
+            
+            
+        </tr>
+        
+        
+    </table>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

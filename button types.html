@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Types & Styles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+    h2 {
+      color: #333;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px 10px 10px 0;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Button types */
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-success {
+      background-color: #28a745;
+      color: white;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    .btn-warning {
+      background-color: #ffc107;
+      color: black;
+    }
+    .btn-info {
+      background-color: #17a2b8;
+      color: white;
+    }
+    .btn-light {
+      background-color: #f8f9fa;
+      color: #000;
+    }
+    .btn-dark {
+      background-color: #343a40;
+      color: white;
+    }
+
+    /* Sizes */
+    .btn-small {
+      font-size: 12px;
+      padding: 5px 12px;
+    }
+    .btn-medium {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+    .btn-large {
+      font-size: 20px;
+      padding: 14px 28px;
+    }
+
+    /* Additional Styles */
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid currentColor;
+      color: #007bff;
+    }
+    .btn-rounded {
+      border-radius: 30px;
+    }
+    .btn-pill {
+      border-radius: 50px;
+      font-weight: bold;
+    }
+    .btn-gradient {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+    }
+    .btn-glow {
+      background-color: #6610f2;
+      color: white;
+      box-shadow: 0 0 10px #6610f2, 0 0 20px #6610f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h2>Button Types</h2>
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <button class="btn btn-success">Success</button>
+    <button class="btn btn-danger">Danger</button>
+    <button class="btn btn-warning">Warning</button>
+    <button class="btn btn-info">Info</button>
+    <button class="btn btn-light">Light</button>
+    <button class="btn btn-dark">Dark</button>
+  </div>
+
+  <div class="section">
+    <h2>Button Sizes</h2>
+    <button class="btn btn-primary btn-small">Small</button>
+    <button class="btn btn-primary btn-medium">Medium</button>
+    <button class="btn btn-primary btn-large">Large</button>
+  </div>
+
+  <div class="section">
+    <h2>Different Button Styles</h2>
+    <button class="btn btn-outline">Outline</button>
+    <button class="btn btn-primary btn-rounded">Rounded</button>
+    <button class="btn btn-success btn-pill">Pill Shape</button>
+    <button class="btn btn-gradient">Gradient</button>
+    <button class="btn btn-glow">Glow</button>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .b1 button{
+            background-color: #EA4C89;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .b2 button{
+            background-color: rgba(51, 51, 51, 0.05) ;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+        }
+        .b3 button{
+            background-color: green;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .b4 button{
+            background-color: rgba(51, 51, 51, 0.05) ;
+            border: 1px solid black;
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+        }
+        .b5 button{
+            background-color: orangered;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .b6 button{
+            background-color: rgba(51, 51, 51, 0.05) ;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+        }
+        .b6 button:hover{
+            background-color: rgba(173, 38, 38, 0.05);
+            transform: translateY(-1px);
+        }
+        .b7 button{
+            background-color: #0aa5edf6 ;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            box-shadow: rgba(255, 255, 255, .4) 0 2px 0 0 inset;
+            cursor: pointer;
+        }
+        .b8 button{
+            background-color: #e1ecf4;
+            color: #39739d;
+            border-radius: 5px;
+            margin-top: 5px;
+            padding: 5px;
+            border: 1px solid #7aa7c7;
+        }
+        .b9 button{
+            background-color: #405cf5;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .b10 button{
+            background: linear-gradient(180deg,#4B91F7 10%,#367AF6 100%);
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .b11 button{
+            background-color: #fff ;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+            box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.1);
+        }
+        .b12 button{
+            background-color: rgba(0, 0, 0, 0.409) ;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.1);
+        }
+        .b13 button{
+            background-color: #fff ;
+            margin-top: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+            box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.1);
+        }
+        .b13 button:hover{
+            background-color: #f7fafa;
+        }
+        .b14{
+            margin-top: 5px;
+        }
+        .b15 button{
+            margin-top: 5px;
+            background:linear-gradient(#42A1EC , #0070C9 );
+            border: 1px solid #0070C9;
+            color: white;
+            border-radius: 3px;
+        }
+        .b16 button{
+            background-color: #f8f9fa ;
+            border-radius: 2px;
+            border: 1px solid #f8f9fa;
+            margin-top: 5px;
+            padding: 5px;
+        }
+        .b16 button:hover{
+            background-color: #e3e3e5;
+            box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+            border: 1px solid whitesmoke;
+            transform: translateY(-1px);
+        }
+        .b17 button{
+            background-color: whitesmoke;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 25px;
+            color: black;
+            cursor: pointer;
+            box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+        }
+        .b17 button:hover{
+            color: #367AF6;
+            transform: translateY(-1px);
+        }
+        .b18 button{
+            background-color: #0A66C2 ;
+            margin-top: 5px;
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer; 
+        }
+        .b18 button:hover{
+            background-color: #16437E;
+        }
+        .b19 button{
+            background-color: #1CB0F6 ;
+            margin-top: 5px;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            background-clip: padding-box;
+            background-color: #1CB0F6 ;
+            border-width: 0 0 4px;
+        }
+        .b20 button{
+            background-color: #4D4AE8 ;
+            margin-top: 5px;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        .b20 button:hover{
+            background-color: #3733E5;
+        }
+        .b21 button{
+            background-color: #3EB2FD ;
+            margin-top: 5px;
+            border: none;
+            padding: 10px;
+            border-radius: 100px;
+            color: white;
+            cursor: pointer;
+        }
+        .b21 button:hover{
+            background-color: #8988ad;
+        }
+        .b22 button{
+            background-color: #0276FF ;
+            margin-top: 5px;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        .b22 button:hover{
+            background-color: #5ba2f4;
+        }
+        .b23 button{
+            background-color: #fff ;
+            margin-top: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+            box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.1);
+        }
+        .b24 button{
+            background-color: #FF4742 ;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .b24 button:hover{
+            background-color: white;
+            color: #FF4742 ;
+            border: 1px solid #FF4742;
+        }
+        .b25 button{
+            background-color: #36A9AE ;
+            margin-top: 5px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            border: 1px solid #36A9AE ;
+        }
+        .b25 button:hover{
+            box-shadow: 0 1px 1px black;
+        }
+        .b26 button{
+            background-color: #1652F0 ;
+            margin-top: 5px;
+            border: 1px solid #1652F0;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .b27 button{
+            background-color: black;
+            color: white;
+            padding: 5px;
+            margin-top: 5px;  
+            border: none;  
+            border-radius: 8px;
+        }
+        .b27 button:hover{
+            box-shadow: 0px 1px 1px black;
+            transform: translateY(-1px);
+        }
+        .b28 button{
+            background-color: white ;
+            margin-top: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+        }
+        .b28 button:hover{
+            background-color: black;
+            color: white ;
+            border: 1px solid black;
+        }
+        .b29 button{
+            background: linear-gradient(#5adaff 0, #5468ff 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 5px;
+            padding: 5px;
+            
+        }
+        .b29 button:hover{
+            box-shadow: 0px 0.5px 1px 1px black;
+        }
+        .b31 button{
+            background-color: black;
+            color: white;
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: 2px;
+            border: none;
+        }
+        .b31 button:hover{
+            background-color: rgba(0, 0, 0, 0.212);
+        }
+        .b32 button{ 
+            background-color: yellow;
+            color: black;
+            margin-top: 5px;
+            padding: 5px;
+            border-radius: 2px;
+            border: none;
+        }
+        .b32 button:hover{
+            border: 1px solid rgba(0, 0, 0, 0.221);
+        }
+    </style>
+</head>
+<body>
+    <div class="b1">
+        <button>Button 1</button>
+    </div>
+    <div class="b2">
+        <button>Button 2</button>
+    </div>
+    <div class="b3">
+        <button>Button 3</button>
+    </div>
+    <div class="b4">
+        <button>Button 4</button>
+    </div>
+    <div class="b5">
+        <button>Button 5</button>
+    </div>
+    <div class="b6">
+        <button>Button 6</button>
+    </div>
+    <div class="b7">
+        <button>Button 7</button>
+    </div>
+    <div class="b8">
+        <button>Button 8</button>
+    </div>
+    <div class="b9">
+        <button>Button 9</button>
+    </div>
+    <div class="b10">
+        <button>Button 10</button>
+    </div>
+    <div class="b11">
+        <button>Button 11</button>
+    </div>
+    <div class="b12">
+        <button>Button 12</button>
+    </div>
+    <div class="b13">
+        <button>Button 13</button>
+    </div>
+    <div class="b14">
+        <button>Button 14</button>
+    </div>
+    <div class="b15">
+        <button>Button 15</button>
+    </div>
+    <div class="b16">
+        <button>Button 16</button>
+    </div>
+    <div class="b17">
+        <button>Button 17</button>
+    </div>
+    <div class="b18">
+        <button>Button 18</button>
+    </div>
+    <div class="b19">
+        <button>Button 19</button>
+    </div><br>
+    <div class="b20">
+        <button>Button 20</button>
+    </div>
+    <div class="b21">
+        <button>Button 21</button>
+    </div>
+    <div class="b22">
+        <button>Button 22</button>
+    </div>
+    <div class="b23">
+        <button>Button 23</button>
+    </div>
+    <div class="b24">
+        <button>Button 24</button>
+    </div>
+    <div class="b25">
+        <button>Button 25</button>
+    </div>
+    <div class="b26">
+        <button>Button 26</button>
+    </div>
+    <div class="b27">
+        <button>Button 27</button>
+    </div>
+    <div class="b28">
+        <button>Button 28</button>
+    </div>
+    <div class="b29">
+        <button>Button 29</button>
+    </div>
+    <div class="b31">
+        <button>Button 31</button>
+    </div>
+    <div class="b32">
+        <button>Button 32</button>
+    </div>
+</body>
+</html>

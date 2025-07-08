@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 1</title>
+    <style>
+        *{
+            margin: 0px;
+
+        }
+        body{
+            background-color: rgb(66, 66, 66);
+            margin: 6px;
+        }
+        header{
+            color: white;
+            background-color: blueviolet;
+            border: 4px solid black;
+            height: 50px;
+            text-align: center;
+            place-content: center;
+        }
+        .parent1{
+            display: flex;            
+        }
+        .child1{
+            color: white;
+            background-color: rgb(27, 146, 132);
+            border: 4px solid black;
+            width: 30vw;
+            height: 72vh;
+            text-align: center;
+            place-content: center;
+            margin-top: 5px;
+        }
+        .child2{
+            margin: 5px;
+        }
+        .child{
+            color: white;
+            background-color: rgb(43, 122, 226);
+            border: 4px solid black;
+            width: 71vw;
+            height: 30vh;
+            text-align: center;
+            place-content: center;
+        }
+        footer{
+            color: white;
+            background-color: blueviolet;
+            border: 4px solid black;
+            height: 50px;
+            text-align: center;
+            place-content: center;
+        }
+        .child3{
+            display: flex;
+            margin: 5px;
+        }
+        .child4{
+            color: white;
+            background-color: rgb(43, 122, 226);
+            border: 4px solid black;
+            width: 35vw;
+            height: 39vh;
+            text-align: center;
+            place-content: center;
+        
+        }
+        .child5{
+            color: white;
+            background-color: rgb(43, 116, 226);
+            border: 4px solid black;
+            width: 35vw;
+            height: 39vh;
+            text-align: center;
+            place-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>Header</header>
+    <div class="parent1">
+        <div class="child1">
+            <h1>Sidebar</h1>
+        </div>
+        <div class="child2">
+            <div class="child">
+                <h1>Content 1</h1>
+            </div>
+            <div class="child3">
+                <div class="child4">
+                    <h1>content 2</h1>
+                </div>
+                <div class="child5">
+                    <h1>content 3</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>Footer</footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 1</title>
+    <style>
+        *{
+            margin: 0px;
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: 200;
+        
+
+        }
+        body{
+            background-color: rgb(66, 66, 66);
+            margin: 6px;
+        }
+        header{
+            color: white;
+            background-color: blueviolet;
+         margin: 5px;
+            height: 50px;
+            text-align: center;
+            place-content: center;
+        }
+        nav{
+            color: white;
+            background-color: blueviolet;
+          
+            height: 50px;
+            text-align: center;
+            place-content: center;
+        }
+        .parent1{
+            display: flex;            
+        }
+        .child1{
+            color: white;
+            background-color: rgb(53, 225, 145);
+            
+            width: 30vw;
+            height: 63vh;
+            text-align: center;
+            place-content: center;
+            margin-top: 5px;
+        }
+        .child2{
+            margin: 7px;
+        }
+        .child3{
+         color: white;
+            background-color: rgb(43, 134, 226);
+            margin: 7px;
+            width: 71vw;
+            height: 30vh;
+            text-align: center ;
+            place-content: center ; 
+        
+
+        }
+        footer{
+            color: white;
+            background-color: blueviolet;
+           
+            height: 50px;
+            text-align: center;
+            place-content: center;
+        }
+        /* .child3{
+            display: flex;
+            margin: 5px;
+        } */
+        .child4{
+            color: white;
+            background-color: rgb(107, 43, 226);
+            padding-left: 20px;
+            width: 70vw;
+            height: 30vh;
+            text-align: center;
+            place-content: center;
+        
+        }
+        .child5{
+            color: white;
+            background-color: blueviolet;
+            
+            width: 35vw;
+            height: 39vh;
+            text-align: center;
+            place-content: center;
+        
+        }
+    </style>
+</head>
+<body style="background-color: aqua;">
+    <header style="background-color: rgb(89, 187, 177); font-size: 25px;">Header</header>
+    <nav style="background-color: rgb(57, 191, 57); font-size: 25px;">Navigation</nav>
+    <div class="parent1">
+        <div class="child1">
+            <h1>Aside</h1>
+        </div>
+        <div class="child2">
+            <div class="child3">
+                <h1>Content</h1>
+            </div>
+            <div class="child4">
+                <h1>Section</h1>
+            </div>
+        </div>
+    </div>
+    <footer style="background-color:cadetblue ;font-size: 25px; height: 50px;">Footer</footer>
+</body>
+</html>

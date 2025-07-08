@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML & CSS Interview Questions</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+      .container {
+        max-width: 90vw;
+        margin: auto;
+        background: #fff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+      details {
+        background: #e8f9fc;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border-left: 5px solid #3498db;
+      }
+      h3,
+      summary {
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        color: #2980b9;
+      }
+      details[open] {
+        background: #e1eaf3;
+      }
+      .answer {
+        padding-top: 15px;
+        margin-left: 20px;
+        color: #34495e;
+      }
+      code {
+        background-color: #e8e8e8;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: "Courier New", Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>HTML & CSS Interview Questions</h1>
+
+      <!-- HTML Section -->
+      <h2>HTML Questions</h2>
+
+      <h3>1. What does HTML stand for?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <strong>HTML</strong> means <strong>HyperText Markup Language</strong>. It's the base language used to build web pages. It tells browsers how to display headings, paragraphs, links, images, and forms. Without HTML, websites can't be structured.
+          </p>
+        </div>
+      </details>
+
+      <h3>2. What is the basic structure of an HTML page?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            A basic HTML page starts with <code>&lt;!DOCTYPE html></code> to define the document type. Then it has <code>&lt;html></html></code>, inside which there is a <code>&lt;head></head></code> for meta info like title and CSS, and a <code>&lt;body></code> for the visible content. This is the skeleton of any web page.
+          </p>
+        </div>
+      </details>
+
+      <h3>3. What is the difference between an element and a tag?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+           A tag is the actual code like <code>&lt;p></code> or <code>&lt;/p></code>. An element includes the opening tag, content, and closing tag — for example, <code>&lt;p></code>Hello <code>&lt;/p></code> is a paragraph element.
+          </p>
+        </div>
+      </details>
+
+      <h3>4. What are attributes in HTML?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Attributes give extra info about elements. They go inside the opening tag. For example, in <code>&lt;img src="pic.jpg"></code>, the src attribute tells the browser where to find the image.
+          </p>
+        </div>
+      </details>
+
+      <h3>5. What are void elements?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Void elements are self-closing — they don’t have closing tags. Examples: <code>&lt;br></code>, <code>&lt;img></code>, <code>&lt;hr></code>. They just do their job and end right there.
+          </p>
+        </div>
+      </details>
+
+      <h3>6. How do you create a hyperlink?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Use the <code>&lt;a></code> tag with an href attribute. Example: <code>&lt;a href="https://google.com"></a></code>Click Here <code>&lt;/a></code>. It makes the text clickable and opens the link.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        7. What is the purpose of the <code>alt</code> attribute on an
+        <code>&lt;img&gt;</code> tag?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <strong>alt</strong> gives a text description for an image. It's shown if the image doesn't load and helps screen readers for accessibility.
+          </p>
+        </div>
+      </details>
+
+      <h3>8. Differentiate between block-level and inline elements.</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <strong>Block elements</strong> (like <code>&lt;div></code>, <code>&lt;p></code>) take full width and start on a new line. 
+          </p>
+          <p>
+            <strong>Inline elements</strong> (like <code>&lt;span></span></code>, <code>&lt;a></code>) fit inside a line and don't break flow.
+          </p>
+        </div>
+      </details>
+
+      <h3>9. What are the three main types of lists in HTML?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            1. <strong>Unordered List</strong> (<code>&lt;ul&gt;</code>): A list
+            of items marked with bullets.<br />
+            2. <strong>Ordered List</strong> (<code>&lt;ol&gt;</code>): A list
+            of items marked with numbers or letters.<br />
+            3. <strong>Definition List</strong> (<code>&lt;dl&gt;</code>): A
+            list of terms (<code>&lt;dt&gt;</code>) and their descriptions
+            (<code>&lt;dd&gt;</code>).
+          </p>
+           <p>Each has different use cases depending on how you want to show data.</p>
+        </div>
+      </details>
+
+      <h3>10. How do you add comments in HTML?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Comments in HTML start with <code>&lt;!--</code> and end with
+            <code>--&gt;</code>. They ignored by the browser.
+          </p>
+          <p>Example: <code>&lt;!-- This is a comment --&gt;</code></p>
+        </div>
+      </details>
+
+      <h3>
+        11. What is the difference between <code>&lt;strong&gt;</code> and
+        <code>&lt;b&gt;</code> tags?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+           Both make text bold, but <code>&lt;strong> <strong></code> semantic meaning</strong> — it says the text is important. <code>&lt;b></code> <b>just makes text bold without any special meaning.</b>
+          </p>
+        </div>
+      </details>
+
+      <h3>12. What are semantic HTML elements?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Semantic elements clearly explain what the content is. Tags like <code>&lt;header></code>, <code>&lt;footer></code>, <code>&lt;section></code>, and <code>&lt;article></code><article>make the code more readable for developers and search engines.
+          </p>
+        </div>
+      </details>
+
+      <h3>13. How do you create a simple table?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Use the <code>&lt;table></code> tag. Inside it, use <code>&lt;tr></code> for rows, <code>&lt;th></code> for headings, and <code>&lt;td></code> for cells. 
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        14. What is an <code>&lt;iframe&gt;</code> used for?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <code>&lt;iframe></code> is used to embed another webpage inside your page. For example, you can embed a YouTube video or a Google Map using it.
+          </p>
+        </div>
+      </details>
+
+      <h3>15. What are HTML entities?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            HTML entities are used to display special characters like <code><</code>, <code>></code>, <code>&</code>, etc., that can't be written directly. Example: & lt; shows <, & copy; shows ©.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        16. What does the <code>&lt;!DOCTYPE html&gt;</code> declaration do?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            It tells the browser, “Hey! This page is written in <strong>HTML5</strong>.” It helps the browser render the page correctly.
+          </p>
+        </div>
+      </details>
+
+      <h3>17. What is the purpose of the <code>&lt;head&gt;</code> element?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <code>&lt;head></code> stores info about the page — like the title, character set, CSS links, and meta tags. It doesn't show anything on the screen.
+          </p>
+        </div>
+      </details>
+
+      <h3>18. How do you create a form in HTML?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            You use the <code>&lt;form&gt;</code> tag. Inside the form, you can
+            use various input elements like
+            <code>&lt;input type="text"&gt;</code>,
+            <code>&lt;input type="radio"&gt;</code>,
+            <code>&lt;input type="submit"&gt;</code>,
+            <code>&lt;textarea&gt;</code>, etc.
+          </p>
+        </div>
+      </details>
+
+      <h3>19. What is the purpose of the <code>&lt;label&gt;</code> tag?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <code>&lt;label></label></code> is used to <strong>name input fields</strong>, making forms more accessible. When you click the label, it focuses the related input box.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        20. What is the difference between <code>&lt;div&gt;</code> and
+        <code>&lt;span&gt;</code>?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <code>&lt;div</code> is a block-level <code>&lt;div></code> is a block-level element used for layout and containers. <code>&lt;span></code> is inline, used to style or group small pieces of text.
+          </p>
+        </div>
+      </details>
+
+      <h3>21. How can you open a link in a new tab?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            By using the <code>target="_blank"</code> attribute in the anchor
+            tag:
+            <code>&lt;a href="url" target="_blank"&gt;Link&lt;/a&gt;</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>22. How do you add a video to a webpage?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            With the HTML5 <code>&lt;video&gt;</code> tag. You can specify the
+            video source using the <code>src</code> attribute or a
+            <code>&lt;source&gt;</code> element inside the video tag. Example:
+            <code>&lt;video src="movie.mp4" controls&gt;&lt;/video&gt;</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>23. What does the <code>colspan</code> attribute do in a table?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The <code>colspan</code> attribute on a <code>&lt;th&gt;</code> or
+            <code>&lt;td&gt;</code> to make one cell spread across multiple columns.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        24. What is the <code>lang</code> attribute in the
+        <code>&lt;html&gt;</code> tag for?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The <code>lang</code> attribute specifies the language of the
+            document's content. This helps search engines and browsers. For
+            example, <code>lang="en"</code> for English.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        25. Can you have multiple <code>&lt;h1&gt;</code> tags on a single page?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Yes, but only if they're inside different sections or articles.For SEO, it's better to have one main <code>&lt;h1></code> for the page title and use <code>&lt;h2></code>, <code>&lt;h3></code>, etc. for subheadings.
+          </p>
+        </div>
+      </details>
+
+      <!-- CSS Section -->
+      <h2>CSS Questions</h2>
+
+      <h3>26. What does CSS stand for?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            CSS stands for <strong>Cascading Style Sheets</strong>. It's used to
+            describe the presentation and styling of a document written in a
+            markup language like HTML.
+          </p>
+        </div>
+      </details>
+
+      <h3>27. What are the three ways to include CSS in a webpage?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            1. <strong>External CSS:</strong> A separate <code>.css</code> file
+            linked via the <code>&lt;link&gt;</code> tag in the
+            <code>&lt;head&gt;</code>. (Best practice)<br />
+            2. <strong>Internal CSS:</strong> Placed inside a
+            <code>&lt;style&gt;</code> tag within the
+            <code>&lt;head&gt;</code> section.<br />
+            3. <strong>Inline CSS:</strong> Applied directly to an element using
+            the <code>style</code> attribute.
+          </p>
+        </div>
+      </details>
+
+      <h3>28. What is a CSS selector?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            A selector is the part of a CSS rule that "selects" the HTML
+            element(s) you want to style. Examples include selecting by element
+            type (<code>p</code>), class (<code>.my-class</code>), or ID
+            (<code>#my-id</code>).
+          </p>
+        </div>
+      </details>
+
+      <h3>29. What is the difference between an ID and a class selector?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            An <strong>ID</strong> (<code>#my-id</code>) is unique and should
+            only be applied to a single element on a page. A
+            <strong>class</strong> (<code>.my-class</code>) can be applied to
+            multiple elements.
+          </p>
+        </div>
+      </details>
+
+      <h3>30. What is the CSS Box Model?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The CSS box model describes the rectangular boxes that are generated
+            for elements in the document tree. Each box has four edges: the
+            <strong>margin</strong> edge, <strong>border</strong> edge,
+            <strong>padding</strong> edge, and <strong>content</strong> edge.
+          </p>
+        </div>
+      </details>
+
+      <h3>31. What is the difference between margin and padding?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <strong>Padding</strong> is the space between the element's content
+            and its border. <strong>Margin</strong> is the space outside the
+            border, between the element and other elements.
+          </p>
+        </div>
+      </details>
+
+      <h3>32. How do you center a block-level element horizontally?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            You can center a block-level element by setting its
+            <code>width</code> and then setting its horizontal margins to
+            <code>auto</code>. Example: <code>width: 80%; margin: 0 auto;</code>
+          </p>
+        </div>
+      </details>
+
+      <h3>33. What is the <code>display</code> property in CSS?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The <code>display</code> property specifies how an element is shown
+            on a page. Common values are <code>block</code>,
+            <code>inline</code>, <code>inline-block</code>, and
+            <code>none</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        34. What's the difference between <code>visibility: hidden;</code> and
+        <code>display: none;</code>?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <code>display: none;</code> removes the element completely from the
+            document flow. It takes up no space.
+          </p>
+          <p>
+            <code>visibility: hidden;</code> hides the element, but it still
+            occupies its space in the layout.
+          </p>
+        </div>
+      </details>
+
+      <h3>35. What are pseudo-classes?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            A pseudo-class is used to define a special state of an element. For
+            example, <code>:hover</code> applies a style when the user hovers
+            over an element, <code>:active</code> when it is clicked, and
+            <code>:focus</code> when it is selected.
+          </p>
+        </div>
+      </details>
+
+      <h3>36. What is specificity in CSS?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Specificity is the algorithm used by browsers to determine which CSS
+            rule is the most "specific" and should be applied to an element when
+            there are conflicting rules. IDs are more specific than classes,
+            which are more specific than element tags.
+          </p>
+        </div>
+      </details>
+
+      <h3>37. What is the <code>z-index</code> property used for?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The <code>z-index</code> property specifies the stack order of
+            positioned elements (elements whose <code>position</code> is not
+            <code>static</code>). An element with a higher
+            <code>z-index</code> will appear in front of an element with a lower
+            one.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        38. What are the possible values for the
+        <code>position</code> property?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <code>static</code>: Default value. Elements render in order, as
+            they appear in the document flow.<br />
+            <code>relative</code>: The element is positioned relative to its
+            normal position.<br />
+            <code>fixed</code>: The element is positioned relative to the
+            browser window and does not move when scrolling.<br />
+            <code>absolute</code>: The element is positioned relative to its
+            nearest positioned ancestor.
+          </p>
+        </div>
+      </details>
+
+      <h3>39. How do you change the color of text?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Using the <code>color</code> property. Example:
+            <code>p { color: blue; }</code> or
+            <code>p { color: #0000FF; }</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>40. How do you set a background image?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Using the <code>background-image</code> property. Example:
+            <code>body { background-image: url("paper.gif"); }</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        41. What is the difference between <code>em</code> and
+        <code>rem</code> units?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            <code>em</code> is relative to the font-size of its direct or
+            nearest parent element. <code>rem</code> (root em) is relative only
+            to the font-size of the root <code>&lt;html&gt;</code> element.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        42. How would you apply a style to every <code>p</code> element that is
+        a direct child of a <code>div</code>?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Using the child combinator (<code>&gt;</code>):
+            <code>div > p { ... }</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>43. What does the <code>float</code> property do?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The <code>float</code> property specifies whether an element should
+            float to the left or right, allowing text and inline elements to
+            wrap around it. It essentially takes the element out of the normal
+            document flow.
+          </p>
+        </div>
+      </details>
+
+      <h3>44. How can you remove the underline from a hyperlink?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            By setting the <code>text-decoration</code> property to
+            <code>none</code>. Example:
+            <code>a { text-decoration: none; }</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        45. What is the purpose of the universal selector (<code>*</code>)?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The universal selector (<code>*</code>) selects all HTML elements on
+            the page. It's often used in CSS resets to remove default browser
+            margins and paddings.
+          </p>
+        </div>
+      </details>
+
+      <h3>46. How do you make text bold in CSS?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Using the <code>font-weight</code> property. Example:
+            <code>p { font-weight: bold; }</code> or
+            <code>p { font-weight: 700; }</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>
+        47. What does the <code>box-sizing: border-box;</code> property do?
+      </h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            By default, an element's <code>width</code> and
+            <code>height</code> properties apply to the content box.
+            <code>box-sizing: border-box;</code> tells the browser to include
+            the padding and border in the element's total width and height,
+            which makes layout calculations more predictable.
+          </p>
+        </div>
+      </details>
+
+      <h3>48. Can you combine multiple selectors?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            Yes, you can group selectors to apply the same styles to multiple
+            elements by separating them with a comma. Example:
+            <code>h1, h2, p { color: navy; }</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>49. How do you specify a comment in a CSS file?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            CSS comments start with <code>/*</code> and end with
+            <code>*/</code>. Example: <code>/* This is a CSS comment */</code>.
+          </p>
+        </div>
+      </details>
+
+      <h3>50. What does the <code>opacity</code> property do?</h3>
+      <details>
+        <summary>Answer</summary>
+        <div class="answer">
+          <p>
+            The <code>opacity</code> property sets the opacity level for an
+            element. The value ranges from <code>0.0</code> (fully transparent)
+            to <code>1.0</code> (fully opaque). It affects the entire element,
+            including its content.
+          </p>
+        </div>
+      </details>
+    </div>
+  </body>
+</html>
+

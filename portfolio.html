@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>K. Lakshmi Nandan — Frontend Dev</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --glass: rgba(255,255,255,0.08);
+      --accent: #00b3ff;
+      --text: #c5c6c7;
+      --blur: blur(20px);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin:0; padding:0;
+    }
+    body {
+      background: radial-gradient(circle at top, #1f2833, var(--bg));
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      line-height:1.5;
+      scroll-behavior: smooth;
+    }
+    header {
+      text-align:center;
+      padding:4rem 2rem;
+      animation: fadeIn 1s ease-out;
+    }
+    header img {
+      width:160px; height:160px;
+      border-radius:50%;
+      border:4px solid var(--accent);
+      box-shadow:0 0 20px var(--accent);
+      object-fit:cover;
+      margin-bottom:1rem;
+    }
+    header h1 {
+      font-size:2.8rem;
+      color:#ffffff;
+      margin-bottom:0.5rem;
+      animation: slideDown 0.8s ease-out;
+    }
+    header p {
+      color:#888;
+      font-size:1.2rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+    section {
+      max-width:1000px;
+      margin:auto;
+      padding:3rem 1rem;
+      animation: fadeUp 0.8s ease-out;
+    }
+    .section-title {
+      font-size:2rem;
+      margin-bottom:1.5rem;
+      border-left:4px solid var(--accent);
+      padding-left:1rem;
+    }
+    .card-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:2rem;
+    }
+    .card {
+      background:var(--glass);
+      padding:1.5rem;
+      border-radius:16px;
+      backdrop-filter:var(--blur);
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+      transition:transform 0.3s ease;
+    }
+    .card:hover {
+      transform:translateY(-10px);
+    }
+    footer {
+      text-align:center;
+      padding:2rem;
+      font-size:0.9rem;
+      color:#555;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; } to { opacity:1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity:0; } 
+      to { transform: translateY(0); opacity:1; }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(20px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="nan 4.jpg" alt="Lakshmi Nandan">
+  <h1>K. Lakshmi Nandan</h1>
+  <p>Aspiring Frontend Developer with a passion for sleek, modern UIs</p>
+</header>
+
+<section>
+  <h2 class="section-title">About Me</h2>
+  <p>B.Tech (CSE AI & ML), Geethanjali Institute. Specializing in responsive UI development with HTML, CSS, JavaScript, and React basics. My goal: create polished frontend experiences that wow users and interviewers.</p>
+</section>
+
+<section>
+  <h2 class="section-title">Skills</h2>
+  <div class="card-grid">
+    <div class="card">HTML5</div>
+    <div class="card">CSS3</div>
+    <div class="card">JavaScript</div>
+    <div class="card">React (Basics)</div>
+    <div class="card">Responsive Design</div>
+    <div class="card">Git & GitHub</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Projects</h2>
+  <div class="card-grid">
+    <div class="card"><strong>Portfolio Website</strong><br>Dark-themed, responsive UI with glassmorphism and scroll animations.</div>
+    <div class="card"><strong>To-Do List App</strong><br>CRUD UI built with HTML, CSS, JavaScript.</div>
+    <div class="card"><strong>Medicine Booking UI</strong><br>Modern design prototype using frontend best practices.</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Education</h2>
+  <div class="card-grid">
+    <div class="card"><strong>B.Tech – CSE (AI & ML)</strong><br>Geethanjali Institute, JNTUA, CGPA 7.68 (2019–23)</div>
+    <div class="card"><strong>Intermediate – MPC</strong><br>Narayana Jr. College, CGPA 9.27 (2017–19)</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Certifications</h2>
+  <div class="card-grid">
+    <div class="card">NPTEL – Intro to Artificial Intelligence</div>
+    <div class="card">Python with Data Science – Spoken Tutorial</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Contact</h2>
+  <p>Email: lakshminandan@example.com<br>GitHub: github.com/lakshminandan<br>LinkedIn: linkedin.com/in/lakshminandan</p>
+</section>
+
+<footer>&copy; 2025 K. Lakshmi Nandan. All rights reserved.</footer>
+
+</body>
+</html>

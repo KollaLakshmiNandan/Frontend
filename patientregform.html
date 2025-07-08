@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patientform</title>
+</head>
+<style>
+    @media (min-width:100px)
+    {
+
+    .gl{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+        flex-wrap: wrap; 
+    }
+    .mh{
+        display: grid;
+        gap: 10px;
+        flex-wrap: wrap; 
+    }
+    .pgroup{
+    margin-bottom: 10px;
+    
+    }
+    .personal_info{
+        margin-bottom: 2rem;
+    }
+    .pinfo{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid rgb(208, 235, 235);
+        color: darkslateblue;
+    }
+    h1{
+        font-size: 35px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid rgb(203, 232, 232);
+        color: darkslateblue;
+    }
+    label{
+        display: flex;
+        margin-bottom: 10px;
+        font-weight: 700;
+        color: rgb(57, 56, 56);
+    }
+    input{
+        width: 50%;
+        padding: 14px 10px;
+        border: 1px solid rgb(195, 234, 249);
+        border-radius: 10px;
+        font-size: 15px;
+        color: darkslateblue;
+        box-sizing: border-box;
+    
+    }
+    input:focus, textarea:focus,  select:focus{
+      outline:none;
+      border-color: #4299e1;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    }
+    textarea{
+       
+        width: 50%;
+        padding: 14px 10px;
+        border: 1px solid rgb(195, 234, 249);
+        border-radius: 10px;
+        font-size: 15px;
+        color: darkslateblue;
+        box-sizing: border-box;
+
+    
+    }
+    .button{
+        background-color: darkcyan;
+        color: whitesmoke;
+        padding:15px 25px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        width: 100%;
+    }
+    button:hover{
+        background-color: skyblue;
+    }
+}
+</style>
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <div class="body">
+        <h1>Patient Registration Form (India)</h1>
+        <form>
+            <div class="personal_info">
+              <h2 class="pinfo">Personal Information</h2>
+                <div class="gl">
+                    <div class="pgroup">
+                        <label for="fn">First Name </label>
+                        <input type="text" id="fn" placeholder="Rohith" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="ln">Last Name </label>
+                        <input type="text" id="ln" placeholder="Sharma" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="an">Aadhar Number</label>
+                        <input type="text" id="an" placeholder="XXXX XXXX XXXX" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="abha">ABHA Number(Optional)</label>
+                        <input type="text" id="abha" placeholder="XX-XXXX-XXXX-XXXX" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required >
+                    </div>
+                    <div class="pgroup">
+                        <label for="gen">Gender</label>
+                        <select name="gender" id="gen">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                            <option value="Prefer_not_to_say">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="personal_info">
+              <h2 class="pinfo">Contact Patient</h2>
+                <div class="gl">
+                    <div class="pgroup">
+                        <label for="em">Email Address</label>
+                        <input type="email" id="em" placeholder="Rohith.sharma@gmail.com" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="ph">Phone Number</label>
+                        <input type="tel" id="ph" placeholder="+91 9876543210" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="sa">Street Address</label>
+                        <input type="text" id="sa" placeholder="Flat No. 123, ABC Apartments, XYZ Road" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="ci">City</label>
+                        <input type="text" id="ci" placeholder="Mumbai" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="sut">State/Union Territory</label>
+                        <input type="text" id="sut" placeholder="e.g., Maharashtra, Delhi, Karnataka" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="pn">Pincode</label>
+                        <input type="text" id="pn" placeholder="400001" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="cu">Country</label>
+                        <input type="text" id="cu" placeholder="India" required>
+                    </div>
+                </div>
+            </div>
+            <div class="personal_info">
+              <h2 class="pinfo">Emergency Contact Information</h2>
+                <div class="gl">
+                    <div class="pgroup">
+                        <label for="ful">Full Name</label>
+                        <input type="text" id="ful" placeholder="Priya Sharma" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="rl">Relationship</label>
+                        <input type="text" id="rl" placeholder="Wife" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="ph">Phone Number</label>
+                        <input type="text" id="ph" placeholder="+91 9123456789" required>
+                    </div>
+                    <div class="pgroup">
+                        <label for="emo">Email Address (Optional)</label>
+                        <input type="email" id="emo" placeholder="Priya.Sharma@gmail.com" required>
+                    </div>
+                </div>
+            </div>
+            <div class="personal_info">
+              <h2 class="pinfo">Medical History (Optional)</h2>
+                <div class="mh">
+                    <div class="pgroup">
+                        <label for="ka">Known Allergies</label>
+                        <textarea type="text" id="ka" placeholder="e.g., Dust, Sulfa drugs" required style="font-family: Arial, Helvetica, sans-serif;"></textarea>
+                    </div>
+                    <div class="pgroup">
+                        <label for="cm">Current Medications</label>
+                        <textarea type="text" id="cm" placeholder="e.g., Metformin 500mg twice daily" required style="font-family: Arial, Helvetica, sans-serif;"></textarea>
+                    </div>
+                    <div class="pgroup">
+                        <label for="pec">Pre-existing Conditions</label>
+                        <textarea type="text" id="pec" placeholder="e.g., Asthma, Hypertension" required style="font-family: Arial, Helvetica, sans-serif;"></textarea>
+                    </div>
+                    <button type="submit" class="button">Register Patient</button>
+                </div>
+            </div>   
+        </form>
+    </div>
+</body>
+</html>

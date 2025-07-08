@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TechWave 2025 - Event Registration</title>
+</head>
+<body>
+
+  <h1>TechWave 2025</h1>
+  <p><strong>Date:</strong> August 20–22, 2025</p>
+  <p><strong>Location:</strong> Hyderabad International Convention Centre</p>
+
+  <hr>
+
+  <h2>Event Highlights</h2>
+  <ul>
+    <li>Workshops on AI, Cloud, and Cybersecurity</li>
+    <li>Expert Talks from Industry Leaders</li>
+    <li>Startup Pitch and Expo</li>
+    <li>Hackathon with Prizes</li>
+  </ul>
+
+  <hr>
+
+  <h2>Register Now</h2>
+  <form action="/submit-registration" method="post">
+    <label for="name">Full Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email Address:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">Phone Number:</label><br>
+    <input type="tel" id="phone" name="phone"><br><br>
+
+    <label for="track">Select Track:</label><br>
+    <select id="track" name="track">
+      <option value="ai">AI & ML</option>
+      <option value="cloud">Cloud Computing</option>
+      <option value="cybersecurity">Cybersecurity</option>
+    </select><br><br>
+
+    <label>Meal Preference:</label><br>
+    <input type="radio" id="veg" name="meal" value="veg" checked>
+    <label for="veg">Vegetarian</label><br>
+    <input type="radio" id="nonveg" name="meal" value="nonveg">
+    <label for="nonveg">Non-Vegetarian</label><br><br>
+
+    <input type="submit" value="Submit Registration">
+  </form>
+
+  <hr>
+
+  <h2>Event Promo</h2>
+  <video width="400" controls>
+    <source src="media/techwave-promo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <h2>Past Event Gallery</h2>
+  <img src="images/event1.jpg" alt="TechWave 2024" width="200">
+  <img src="images/event2.jpg" alt="Workshop Session" width="200">
+  <img src="images/event3.jpg" alt="Networking Night" width="200">
+
+  <hr>
+
+  <p>Visit <a href="https://techwave2025.com">techwave2025.com</a> for full agenda and FAQs.</p>
+
+</body>
+</html>

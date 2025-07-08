@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            background-color:dimgrey;
+        }
+        .main1{
+            display: flex;
+            justify-content: space-between;
+        }
+        .cont1{ 
+            display: block;
+            width: 20vw;
+            background-color:darkgray;
+            height: 20vh;
+            text-align: center;
+            place-content: center;
+        }
+        .cont2{ 
+            display: block;
+            width: 20vw;
+            background-color:darkgrey;
+            height: 20vh;
+            place-content: center;
+            text-align: center;
+        }
+        .main2{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .main3{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main1">
+        <div class="cont1">Container-1</div>
+        <div class="cont2">Container-1</div>
+    </div>
+    <div class="main2">
+        <div class="cont1">Container-2</div>
+        <div class="cont2">Container-2</div>
+    </div>
+    <div class="main3">
+        <div class="cont1">Container-3</div>
+    </div>
+    <div class="main2">
+        <div class="cont1">Container-4</div>
+        <div class="cont2">Container-4</div>
+    </div>
+     <div class="main1">
+        <div class="cont1">Container-5</div>
+        <div class="cont2">Container-5</div>
+    </div>
+</body>
+</html>

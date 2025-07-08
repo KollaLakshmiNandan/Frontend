@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Layout 1</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(144, 231, 231);
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    
+    header, footer {
+      background-color: rgb(19, 183, 131);
+      color: white;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .parent1 {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .child1 {
+      background-color: rgb(56, 214, 64);
+      width: 30%;
+      height: 61vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+
+    .child2 {
+      background-color: orange;
+      width: 70%;
+      height: 61vh;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+
+    .child2 h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .child3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 80px;
+}
+
+.img1 {
+  background-color: rgb(242, 242, 8);
+  width: 30%;
+  min-width: 100px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+  
+}
+
+
+    footer {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>Header</header>
+
+  <div class="parent1">
+    <div class="child1">Aside</div>
+
+    <div class="child2">
+      <h1>Article</h1>
+      <div class="child3">
+        <div class="img1">Image</div>
+        <div class="img1">Image</div>
+        <div class="img1">Image</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Footer</footer>
+</body>
+</html>
