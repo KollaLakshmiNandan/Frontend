@@ -1,0 +1,4 @@
+p { color: blue; }
+.highlight { color: green; }
+#container p { color: red; }
+div#container p.highlight { color: purple; }

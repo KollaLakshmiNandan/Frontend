@@ -1,0 +1,21 @@
+#header{
+    background-color: aqua;
+    color: aquamarine;
+    background-color: bisque;
+    color: brown;
+    border-radius: 5px;
+    border-style: dotted;
+    text-align: center;
+    padding: 10px 20px 10px 40px;
+
+}
+.logo-text{
+    background-color: blue;
+    color: chartreuse;
+    /*background-color: bisque;
+    color: brown;
+    border-radius: 5px;
+    border-style: dotted;
+    text-align: center;
+    padding: 10px 20px 10px 40px;*/
+}

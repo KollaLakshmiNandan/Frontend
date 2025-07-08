@@ -1,0 +1,7 @@
+section>p:not(.note){
+    background-color: rgb(9, 71, 71);
+    color: rgb(239, 239, 244);
+    border-radius: 7px;
+    border-style: double;
+    padding: 10px 10px 10px 10px;
+}

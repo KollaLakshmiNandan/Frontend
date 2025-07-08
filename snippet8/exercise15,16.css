@@ -1,0 +1,14 @@
+input[required]{
+    background-color: rgb(205, 241, 241);
+    color: rgb(61, 61, 91);
+    border-radius: 7px;
+    border-style: double;
+    padding: 10px 10px 10px 10px;
+}
+input[checked]{
+    background-color: rgb(4, 132, 132);
+    color: rgb(0, 0, 255);
+    border-radius: 7px;
+    border-style: double;
+    padding: 10px 10px 10px 10px;
+}

@@ -1,0 +1,7 @@
+img[src$=".jpg"]{
+    background-color: rgb(205, 241, 241);
+    color: rgb(61, 61, 91);
+    border-radius: 7px;
+    border-style: double;
+    padding: 10px 10px 10px 10px;
+}

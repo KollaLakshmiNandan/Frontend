@@ -1,0 +1,5 @@
+.outer .middle p { color: blue; }
+div p.inner-text { color: red; }
+div.outer div.middle p.inner-text {
+  color: green;
+}
