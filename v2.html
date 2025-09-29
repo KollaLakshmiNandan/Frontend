@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Paint App — Fixed Undo/Redo</title>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --toolbar-bg: #2b3a42;
+        --btn-bg: #344a52;
+        --accent: #1abc9c;
+        --panel-gap: 10px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        background: #e9eef3;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* TOOLBAR */
+      .toolbar {
+        display: flex;
+        gap: var(--panel-gap);
+        align-items: center;
+        padding: 12px;
+        background: var(--toolbar-bg);
+        color: #fff;
+        flex-wrap: wrap;
+      }
+
+      .group {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      button,
+      select,
+      input[type="range"],
+      input[type="color"] {
+        border: 0;
+        background: var(--btn-bg);
+        color: #fff;
+        padding: 8px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.12s ease;
+      }
+      button:hover,
+      .swatch:hover {
+        transform: translateY(-2px);
+      }
+      button.active {
+        background: var(--accent);
+        color: #0b1a16;
+      }
+
+      label {
+        color: #cfe7e0;
+        font-size: 13px;
+      }
+      input[type="range"] {
+        width: 120px;
+        padding: 0;
+        background: none;
+      }
+      input[type="color"] {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+      }
+
+      /* COLORS */
+      .colors {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-left: auto;
+      }
+      .swatch {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        border: 2px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      .swatch.active {
+        outline: 3px solid #fff;
+        transform: scale(1.06);
+      }
+
+      /* CANVAS */
+      .canvas-wrap {
+        flex: 1;
+        padding: 12px;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background: #ffffff; /* Whiteboard background */
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        display: block;
+      }
+
+      /* small responsive tweaks */
+      /* Mobile Responsive */
+      /* ===== MEDIA QUERIES ===== */
+
+      /* Tablets and smaller desktops */
+      @media (max-width: 1024px) {
+        .toolbar {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+          padding: 8px;
+        }
+
+        .toolbar button,
+        .toolbar input,
+        .toolbar select {
+          font-size: 13px;
+          padding: 6px 8px;
+        }
+
+        canvas {
+          width: 100% !important;
+          height: calc(100vh - 70px) !important;
+        }
+      }
+
+      /* Mobile phones */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+        }
+
+        .toolbar {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 6px;
+          padding: 6px;
+        }
+
+        .toolbar button,
+        .toolbar input,
+        .toolbar select {
+          flex: 1 1 auto;
+          min-width: 60px;
+          padding: 5px;
+          font-size: 12px;
+        }
+
+        canvas {
+          width: 100% !important;
+          height: calc(100vh - 100px) !important;
+        }
+      }
+
+      /* Very small phones */
+      @media (max-width: 480px) {
+        .toolbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .toolbar button,
+        .toolbar input,
+        .toolbar select {
+          width: 100%;
+          font-size: 12px;
+          padding: 5px;
+        }
+
+        canvas {
+          width: 100% !important;
+          height: calc(100vh - 150px) !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar" id="toolbar">
+      <div class="group">
+        <button id="toolBrush" class="active" title="Brush">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button id="toolEraser" title="Eraser">
+          <i class="fa-solid fa-eraser"></i>
+        </button>
+        <button id="toolLine" title="Line">
+          <i class="fa-solid fa-slash"></i>
+        </button>
+        <button id="toolRect" title="Rectangle">
+          <i class="fa-solid fa-square"></i>
+        </button>
+        <button id="toolCircle" title="Circle">
+          <i class="fa-solid fa-circle"></i>
+        </button>
+        <button id="toolText" title="Text">
+          <i class="fa-solid fa-font"></i>
+        </button>
+      </div>
+
+      <div class="group">
+        <label for="sizeRange">Size</label>
+        <input id="sizeRange" type="range" min="1" max="60" value="6" />
+      </div>
+
+      <div class="group">
+        <button id="undoBtn" title="Undo (Ctrl+Z)">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        <button id="redoBtn" title="Redo (Ctrl+Y)">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+        <button id="clearBtn" title="Clear">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        <button id="saveBtn" title="Save">
+          <i class="fa-solid fa-download"></i>
+        </button>
+      </div>
+
+      <div class="colors" id="colorBar" aria-hidden="false">
+        <!-- a few default swatches; user can use custom color as well -->
+      </div>
+
+      <input
+        id="customColor"
+        type="color"
+        value="#000000"
+        title="Pick custom color"
+      />
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+      /* ------------------------------
+   Paint App with fixed Undo/Redo
+   ------------------------------ */
+
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d", { alpha: false }); // opaque background
+      const toolbar = document.getElementById("toolbar");
+
+      let tool = "brush"; // brush, eraser, line, rect, circle, text
+      let color = "#000000";
+      let size = 6;
+      let drawing = false;
+      let startX = 0,
+        startY = 0;
+      let snapshotData = null; // dataUrl snapshot for shape preview
+      let snapshotImg = null; // Image object for preview
+
+      // History stacks
+      let history = [];
+      let redoStack = [];
+      const MAX_HISTORY = 60;
+
+      // UI elements
+      const sizeRange = document.getElementById("sizeRange");
+      const customColor = document.getElementById("customColor");
+      const colorBar = document.getElementById("colorBar");
+      const btnBrush = document.getElementById("toolBrush");
+      const btnEraser = document.getElementById("toolEraser");
+      const btnLine = document.getElementById("toolLine");
+      const btnRect = document.getElementById("toolRect");
+      const btnCircle = document.getElementById("toolCircle");
+      const btnText = document.getElementById("toolText");
+      const undoBtn = document.getElementById("undoBtn");
+      const redoBtn = document.getElementById("redoBtn");
+      const clearBtn = document.getElementById("clearBtn");
+      const saveBtn = document.getElementById("saveBtn");
+
+      // Helper: resize canvas while trying to preserve content
+      function resizeCanvasPreserve() {
+        // store current pixels
+        const data = canvas.toDataURL();
+        const toolbarH = toolbar.offsetHeight;
+        // set size (use innerWidth/innerHeight with small padding)
+        canvas.width = window.innerWidth - 24;
+        canvas.height = window.innerHeight - toolbarH - 24;
+        // restore
+        const img = new Image();
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          // draw scaled to fit (keeps content after resizing)
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+        img.src = data;
+      }
+
+      // Initialize size
+      window.addEventListener("resize", resizeCanvasPreserve);
+      resizeCanvasPreserve();
+
+      // Initial white background
+      function fillBackgroundWhite() {
+        ctx.save();
+        ctx.globalCompositeOperation = "destination-over";
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.restore();
+      }
+      fillBackgroundWhite();
+
+      // HISTORY functions
+      function pushHistory() {
+        try {
+          const data = canvas.toDataURL("image/png");
+          // avoid pushing duplicate consecutive states
+          if (history.length === 0 || history[history.length - 1] !== data) {
+            history.push(data);
+            if (history.length > MAX_HISTORY) history.shift();
+          }
+          // clearing redo stack on new action
+          redoStack.length = 0;
+        } catch (e) {
+          console.warn("pushHistory error", e);
+        }
+      }
+
+      function restoreFromDataURL(dataURL) {
+        const img = new Image();
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+        img.src = dataURL;
+      }
+
+      function undo() {
+        if (history.length > 1) {
+          redoStack.push(history.pop());
+          const prev = history[history.length - 1];
+          restoreFromDataURL(prev);
+        } else if (history.length === 1) {
+          // one state left -> clear canvas (blank)
+          redoStack.push(history.pop());
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          fillBackgroundWhite();
+          // push blank as initial if desired
+          pushHistory();
+        }
+      }
+
+      function redo() {
+        if (redoStack.length > 0) {
+          const data = redoStack.pop();
+          history.push(data);
+          restoreFromDataURL(data);
+        }
+      }
+
+      /* DRAWING logic */
+
+      // convert client coordinates to canvas coordinates
+      function getX(e) {
+        if (e.touches && e.touches.length) return e.touches[0].clientX - 12; // small page padding
+        return e.clientX - 12;
+      }
+      function getY(e) {
+        const toolbarH = toolbar.offsetHeight;
+        if (e.touches && e.touches.length)
+          return e.touches[0].clientY - toolbarH - 12;
+        return e.clientY - toolbarH - 12;
+      }
+
+      function startPointer(e) {
+        // prevent scrolling on touch
+        if (e.type.startsWith("touch")) e.preventDefault();
+
+        drawing = true;
+        startX = getX(e);
+        startY = getY(e);
+
+        // create snapshot for shape preview
+        snapshotData = canvas.toDataURL("image/png");
+        snapshotImg = new Image();
+        snapshotImg.src = snapshotData;
+
+        if (tool === "brush" || tool === "eraser") {
+          ctx.beginPath();
+          ctx.moveTo(startX, startY);
+        }
+
+        // For brush/eraser/text/shape, we don't push history yet. We'll push after action completes.
+      }
+
+      function drawPointer(e) {
+        if (!drawing) return;
+        // prevent scrolling on touch
+        if (e.type.startsWith("touch")) e.preventDefault();
+
+        const x = getX(e),
+          y = getY(e);
+
+        if (tool === "brush") {
+          ctx.lineWidth = size;
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          ctx.strokeStyle = color;
+          ctx.globalCompositeOperation = "source-over";
+          ctx.lineTo(x, y);
+          ctx.stroke();
+        } else if (tool === "eraser") {
+          ctx.lineWidth = size;
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          // Use destination-out for clean erasing (works even if background not white)
+          ctx.globalCompositeOperation = "destination-out";
+          ctx.lineTo(x, y);
+          ctx.stroke();
+          ctx.globalCompositeOperation = "source-over";
+        } else if (tool === "line" || tool === "rect" || tool === "circle") {
+          // For shape preview, restore the snapshot first, then draw current preview
+          if (!snapshotImg) return;
+          // If image not loaded yet, draw only after load
+          if (!snapshotImg.complete) {
+            snapshotImg.onload = () => {
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              ctx.drawImage(snapshotImg, 0, 0, canvas.width, canvas.height);
+              drawShapeOverlay(x, y);
+            };
+          } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(snapshotImg, 0, 0, canvas.width, canvas.height);
+            drawShapeOverlay(x, y);
+          }
+        }
+      }
+
+      function drawShapeOverlay(x, y) {
+        ctx.beginPath();
+        ctx.lineWidth = size;
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+        if (tool === "line") {
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(x, y);
+          ctx.stroke();
+        } else if (tool === "rect") {
+          const w = x - startX;
+          const h = y - startY;
+          ctx.strokeRect(startX, startY, w, h);
+        } else if (tool === "circle") {
+          const dx = x - startX;
+          const dy = y - startY;
+          const r = Math.sqrt(dx * dx + dy * dy);
+          ctx.arc(startX, startY, r, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        ctx.closePath();
+      }
+
+      function endPointer(e) {
+        if (!drawing) return;
+        // prevent scrolling on touch
+        if (e.type && e.type.startsWith("touch")) e.preventDefault();
+
+        const x = getX(e),
+          y = getY(e);
+
+        if (tool === "brush" || tool === "eraser") {
+          ctx.closePath();
+          // push the final canvas after brush stroke
+          pushHistory();
+        } else if (tool === "line" || tool === "rect" || tool === "circle") {
+          // ensure final overlay is drawn on top of snapshot and then push
+          if (snapshotImg && snapshotImg.complete) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(snapshotImg, 0, 0, canvas.width, canvas.height);
+            drawShapeOverlay(x, y);
+          } else {
+            // fallback: directly draw (rare)
+            drawShapeOverlay(x, y);
+          }
+          pushHistory();
+        } else if (tool === "text") {
+          // place text at clicked location
+          const txt = prompt("Enter text:");
+          if (txt) {
+            ctx.font = `${Math.max(12, size * 4)}px sans-serif`;
+            ctx.fillStyle = color;
+            ctx.fillText(txt, startX, startY);
+            pushHistory();
+          }
+        }
+
+        // reset
+        drawing = false;
+        snapshotData = null;
+        snapshotImg = null;
+      }
+
+      /* Event wiring: mouse + touch */
+      canvas.addEventListener("mousedown", startPointer);
+      canvas.addEventListener("mousemove", drawPointer);
+      canvas.addEventListener("mouseup", endPointer);
+      canvas.addEventListener("mouseleave", () => {
+        if (drawing)
+          endPointer({ type: "mouseup", clientX: startX, clientY: startY });
+      });
+
+      // Touch
+      canvas.addEventListener("touchstart", (e) => startPointer(e), {
+        passive: false,
+      });
+      canvas.addEventListener("touchmove", (e) => drawPointer(e), {
+        passive: false,
+      });
+      canvas.addEventListener("touchend", (e) => endPointer(e), {
+        passive: false,
+      });
+
+      /* TOOL / UI handlers */
+      function clearActiveButtons() {
+        [btnBrush, btnEraser, btnLine, btnRect, btnCircle, btnText].forEach(
+          (b) => b.classList.remove("active")
+        );
+      }
+
+      btnBrush.onclick = () => {
+        tool = "brush";
+        clearActiveButtons();
+        btnBrush.classList.add("active");
+      };
+      btnEraser.onclick = () => {
+        tool = "eraser";
+        clearActiveButtons();
+        btnEraser.classList.add("active");
+      };
+      btnLine.onclick = () => {
+        tool = "line";
+        clearActiveButtons();
+        btnLine.classList.add("active");
+      };
+      btnRect.onclick = () => {
+        tool = "rect";
+        clearActiveButtons();
+        btnRect.classList.add("active");
+      };
+      btnCircle.onclick = () => {
+        tool = "circle";
+        clearActiveButtons();
+        btnCircle.classList.add("active");
+      };
+      btnText.onclick = () => {
+        tool = "text";
+        clearActiveButtons();
+        btnText.classList.add("active");
+      };
+
+      sizeRange.addEventListener("input", (e) => {
+        size = parseInt(e.target.value, 10);
+      });
+      customColor.addEventListener("input", (e) => {
+        color = e.target.value;
+        activateClosestSwatch(null);
+      });
+
+      undoBtn.addEventListener("click", undo);
+      redoBtn.addEventListener("click", redo);
+      clearBtn.addEventListener("click", () => {
+        pushHistory(); // push current state before clearing, so undo works
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        fillBackgroundWhite();
+        pushHistory(); // push blank state after clear
+      });
+      saveBtn.addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.download = "paint.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+
+      /* Keyboard shortcuts */
+      window.addEventListener("keydown", (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") {
+          e.preventDefault();
+          undo();
+        }
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "y") {
+          e.preventDefault();
+          redo();
+        }
+      });
+
+      /* COLOR BAR: create many swatches and indicate active */
+      const defaultColors = [
+        "#000000",
+        "#7f8c8d",
+        "#555555",
+        "#ffffff",
+        "#e74c3c",
+        "#c0392b",
+        "#e67e22",
+        "#d35400",
+        "#f1c40f",
+        "#f39c12",
+        "#2ecc71",
+        "#27ae60",
+        "#16a085",
+        "#1abc9c",
+        "#3498db",
+        "#2980b9",
+        "#9b59b6",
+        "#8e44ad",
+        "#ec407a",
+        "#d81b60",
+        "#a52a2a",
+        "#964B00",
+        "#FFD700",
+        "#ADFF2F",
+        "#00CED1",
+        "#4682B4",
+        "#800000",
+        "#FF69B4",
+      ];
+
+      // populate color bar
+      defaultColors.forEach((c) => {
+        const d = document.createElement("div");
+        d.className = "swatch";
+        d.style.background = c;
+        d.dataset.color = c;
+        d.title = c;
+        d.addEventListener("click", () => {
+          color = c;
+          customColor.value = c;
+          activateClosestSwatch(d);
+        });
+        colorBar.appendChild(d);
+      });
+
+      // helper to mark swatch active
+      function activateClosestSwatch(activeDiv) {
+        document
+          .querySelectorAll(".swatch")
+          .forEach((s) => s.classList.remove("active"));
+        if (activeDiv) {
+          activeDiv.classList.add("active");
+        } else {
+          // if custom color typed, try to match a swatch exactly
+          const match = Array.from(document.querySelectorAll(".swatch")).find(
+            (s) =>
+              s.dataset.color.toLowerCase() === customColor.value.toLowerCase()
+          );
+          if (match) match.classList.add("active");
+        }
+      }
+
+      // set initial color active
+      activateClosestSwatch(document.querySelector(".swatch"));
+
+      // Initialize history with current blank canvas
+      pushHistory();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Finder</title>
+<style>
+:root{
+  --bg-dark:#121212;
+  --card-bg:rgba(30,30,30,0.6);
+  --text-light:#f5f5f5;
+  --primary:#4caf50;
+  --accent:#ff9800;
+  --shadow:0 8px 32px rgba(0,0,0,0.6);
+  --blur:blur(12px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Poppins",sans-serif;background:var(--bg-dark);color:var(--text-light);line-height:1.6;}
+
+/* Header */
+header{
+  position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;
+  background:var(--card-bg);backdrop-filter:var(--blur);padding:1rem 2rem;
+  box-shadow:var(--shadow);z-index:1000;
+}
+header .logo{font-size:1.6rem;font-weight:700;color:var(--primary);}
+nav button{margin:0 .5rem;padding:.6rem 1.2rem;border:none;background:none;font-size:1rem;cursor:pointer;border-radius:6px;color:var(--text-light);transition:.2s;}
+nav button:hover, nav button.active{color:#fff;background:var(--primary);font-weight:600;}
+
+/* Hero Section + Search */
+.hero{
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80") center/cover no-repeat;
+  padding:7rem 2rem;text-align:center;color:#fff;position:relative;
+}
+.hero-content{position:relative;z-index:1;max-width:700px;margin:auto;}
+.hero h1{font-size:3.2rem;margin-bottom:1rem;line-height:1.2;}
+.search-box{display:flex;justify-content:center;margin:30px auto;max-width:650px;border-radius:15px;background:var(--card-bg);backdrop-filter:var(--blur);box-shadow:var(--shadow);overflow:hidden;}
+#search-input{padding:15px 20px;font-size:1rem;flex-grow:1;border:none;outline:none;background:transparent;color:var(--text-light);}
+#search-input:focus{background:rgba(255,255,255,0.05);}
+#search-button{padding:14px 28px;font-size:1rem;font-weight:600;background:var(--primary);color:#fff;border:none;cursor:pointer;transition:background .2s;}
+#search-button:hover{background:var(--primary-dark);}
+.random-button{margin-top:12px;padding:12px 28px;font-size:1rem;font-weight:600;background:var(--accent);color:#fff;border:none;border-radius:12px;cursor:pointer;transition:.2s;}
+.random-button:hover{background:var(--accent-dark);}
+.message{text-align:center;margin-top:12px;}
+
+/* Cards / Slider */
+.category{margin-bottom:2rem;padding:0 2rem;}
+.category h3{margin-bottom:1rem;color:var(--accent);}
+.slider{display:flex;overflow-x:auto;gap:1rem;padding-bottom:1rem;scroll-snap-type:x mandatory;}
+.slider::-webkit-scrollbar{height:8px;}
+.slider::-webkit-scrollbar-thumb{background:var(--primary);border-radius:4px;}
+.card{flex:0 0 260px;min-width:260px;max-width:260px;background:var(--card-bg);border-radius:15px;box-shadow:var(--shadow);cursor:pointer;overflow:hidden;backdrop-filter:var(--blur);scroll-snap-align:start;transition:transform .25s;}
+.card:hover{transform:translateY(-6px);}
+.card img{width:100%;height:200px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,0.2);}
+.card-body{padding:.8rem;text-align:center;}
+.card-body h4{margin-bottom:0.5rem;}
+
+/* Modal */
+.modal-container{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;}
+.modal-container.show{opacity:1;visibility:visible;}
+.modal-content{background:var(--card-bg);color:var(--text-light);max-width:600px;max-height:80vh;overflow-y:auto;padding:30px;border-radius:20px;position:relative;box-shadow:var(--shadow);backdrop-filter:var(--blur);}
+.modal-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.3);border:none;border-radius:50%;width:35px;height:35px;font-size:1.3rem;color:var(--text-light);cursor:pointer;}
+.modal-close:hover{background:rgba(0,0,0,0.5);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">RecipeFinder</div>
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('favorites')">Favorites</button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Find recipes that spark joy 🍲</h1>
+    <form id="search-form" class="search-box">
+      <input type="text" id="search-input" placeholder="Search by name (eg. 'carrot')" />
+      <button type="submit" id="search-button">Search</button>
+    </form>
+    <button id="random-button" class="random-button">Get Random Recipe</button>
+    <div class="message" id="message-area">Search for a recipe or get a random one!</div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="categories">
+  <div class="category">
+    <h3>🍳 Breakfast</h3>
+    <div class="slider">
+      <div class="card" onclick="openModal('Oatmeal','Ingredients:<br>• 1 cup oats<br>• 2 cups milk<br>Preparation:<br>1. Cook oats in milk.<br>2. Serve hot.')">
+        <img src="https://images.unsplash.com/photo-1584270354949-21e0b3d2c42f?w=400&q=80" alt="Oatmeal">
+        <div class="card-body"><h4>Oatmeal</h4></div>
+      </div>
+      <div class="card" onclick="openModal('Pancakes','Ingredients:<br>• 1 cup flour<br>• 1 egg<br>• 1 cup milk<br>Preparation:<br>1. Mix ingredients.<br>2. Cook on skillet.')">
+        <img src="https://images.unsplash.com/photo-1584270354951-2f3a3a4c8b1d?w=400&q=80" alt="Pancakes">
+        <div class="card-body"><h4>Pancakes</h4></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h3>🥗 Lunch</h3>
+    <div class="slider">
+      <div class="card" onclick="openModal('Grilled Chicken Salad','Ingredients:<br>• Chicken<br>• Lettuce<br>• Tomato<br>Preparation:<br>1. Grill chicken.<br>2. Mix salad.')">
+        <img src="https://images.unsplash.com/photo-1604908177526-86c2c3f0fc15?w=400&q=80" alt="Salad">
+        <div class="card-body"><h4>Grilled Chicken Salad</h4></div>
+      </div>
+      <div class="card" onclick="openModal('Veggie Wrap','Ingredients:<br>• Tortilla<br>• Veggies<br>Preparation:<br>1. Roll veggies in tortilla.')">
+        <img src="https://images.unsplash.com/photo-1604908177442-146f6c9b70b2?w=400&q=80" alt="Veggie Wrap">
+        <div class="card-body"><h4>Veggie Wrap</h4></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h3>🍛 Dinner</h3>
+    <div class="slider">
+      <div class="card" onclick="openModal('Spaghetti','Ingredients:<br>• Pasta<br>• Tomato sauce<br>Preparation:<br>1. Cook pasta.<br>2. Add sauce.')">
+        <img src="https://images.unsplash.com/photo-1604908177521-2c9e4b5b1d4d?w=400&q=80" alt="Spaghetti">
+        <div class="card-body"><h4>Spaghetti</h4></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h3>🍔 Snacks</h3>
+    <div class="slider">
+      <div class="card" onclick="openModal('Nachos','Ingredients:<br>• Tortilla chips<br>• Cheese<br>Preparation:<br>1. Layer chips and cheese.<br>2. Bake for 10 min.')">
+        <img src="https://images.unsplash.com/photo-1604908177520-1c8b4d5b1d4f?w=400&q=80" alt="Nachos">
+        <div class="card-body"><h4>Nachos</h4></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h3>🍰 Desserts</h3>
+    <div class="slider">
+      <div class="card" onclick="openModal('Chocolate Cake','Ingredients:<br>• Flour<br>• Cocoa powder<br>• Sugar<br>• Eggs<br>Preparation:<br>1. Mix ingredients.<br>2. Bake 30 min.')">
+        <img src="https://images.unsplash.com/photo-1604908177522-3f7b5e7b1d4e?w=400&q=80" alt="Chocolate Cake">
+        <div class="card-body"><h4>Chocolate Cake</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal-container" id="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+function openModal(title, content){
+  document.getElementById('modal-body').innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+  document.getElementById('modal').classList.add('show');
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('show');
+}
+</script>
+
+</body>
+</html>
